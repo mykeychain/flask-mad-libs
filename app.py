@@ -8,10 +8,21 @@ app.config['SECRET_KEY'] = "secret"
 
 debug = DebugToolbarExtension(app)
 
-@apps.route("/form")
+@app.route("/form")
 def show_form():
-
-    prompt_list
+    """ Generates and returns form from list of prompts. """ 
 
     return render_template("questions.html", 
-        prompts=prompt_list)
+        prompts=silly_story.prompts)
+
+
+@app.route("/story")
+def show_story():
+    """ Generates and returns story from form inputs.  """
+
+    inputs = request.args
+
+    full_story = silly_story.generate(inputs)
+
+    return render_template("story.html",
+        story=full_story)
