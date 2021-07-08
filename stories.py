@@ -50,3 +50,5 @@ excited_story = Story(
     ["noun", "verb"],
     """OMG!! OMG!! I love to {verb} a {noun}!"""
 )
+
+story_templates = {"silly_story": silly_story, "excited_story": excited_story}

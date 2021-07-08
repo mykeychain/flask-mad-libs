@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} Pick A Story {% endblock %}
+
+{% block content %}
+
+
+<h1 class="pt-4 mb-3 text-center">Madlibs Story!</h1>
+
+<form action="/form" class="pb-4">
+
+  <h2 class="pt-1 pl-3 pr-3 pb-4">
+    <div class="form-group row">
+        <label for="story-templates" class="col-5 col-form-label text-right">
+            Pick A Story
+        </label>
+        <select id="story-templates" name="story-templates">
+            {% for template in story_templates %}
+            <option value="{{ template }}">{{ template }}</option>
+            {% endfor %}
+        </select>
+
+    </div>
+  </h2>
+
+  <button class="btn btn-primary btn-lg w-100">
+    Submit!
+  </button>
+
+</form>
+
+{% endblock %}
